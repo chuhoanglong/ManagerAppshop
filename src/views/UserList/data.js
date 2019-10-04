@@ -1,20 +1,19 @@
 import uuid from 'uuid/v1';
-var DATA = [];
-const fetchAPI = () => {
+const fetchAPI = async () => {
   const proxyurl = "https://cors-anywhere.herokuapp.com/";
   const url = "https://dmkjo.sse.codesandbox.io/customers"; // site that doesn’t send Access-Control-*
-  return fetch(proxyurl + url) // https://cors-anywhere.herokuapp.com/https://example.com
-    .then(response => response.json())
-    .then(contents => {
-      DATA = contents;
-      console.log("ben trong fetch",DATA);
-      return DATA
+  try {
+    let response = await fetch(
+      proxyurl + url,
+    );
+    let responseJson = await response.json();
 
-    })
-    .catch(() => console.log("Can’t access " + url + " response. Blocked by browser?"))
-
+    return responseJson;
+  } catch (error) {
+    console.error(error);
+  }
 }
-console.log('ben ngoai fetch:,,,,,,', fetchAPI());
+fetchAPI();
 
 export default [
   {

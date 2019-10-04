@@ -5,7 +5,6 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 
 import { ProductsToolbar, ProductCard } from './components';
-import mockData from './data';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -22,43 +21,68 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const ProductList = () => {
-  const classes = useStyles();
+class ProductList extends React.Component {
 
-  const [products] = useState(mockData);
+  constructor(props) {
+    super(props);
+    this.state = {
+      products: this.props.products
+    }
+  }
+  componentWillMount(){
+    this.props.showProductTask();
+  }
+  render() {
+    console.log(this.props.products);
+    
+    return (
+      <div style={styles.root}>
+        <ProductsToolbar />
+        <div style={styles.content}>
+          <Grid
+            container
+            spacing={3}
+          >
+            {this.props.products.map(product => (
+              <Grid
+                item
+                key={product.id}
+                lg={4}
+                md={6}
+                xs={12}
+              >
+                <ProductCard product={product} />
+              </Grid>
+            ))}
+          </Grid>
+        </div>
+        <div style={styles.pagination}>
+          <Typography variant="caption">1-6 of 20</Typography>
+          <IconButton>
+            <ChevronLeftIcon />
+          </IconButton>
+          <IconButton>
+            <ChevronRightIcon />
+          </IconButton>
+        </div>
+      </div>
+    );
+  };
+}
 
-  return (
-    <div className={classes.root}>
-      <ProductsToolbar />
-      <div className={classes.content}>
-        <Grid
-          container
-          spacing={3}
-        >
-          {products.map(product => (
-            <Grid
-              item
-              key={product.id}
-              lg={4}
-              md={6}
-              xs={12}
-            >
-              <ProductCard product={product} />
-            </Grid>
-          ))}
-        </Grid>
-      </div>
-      <div className={classes.pagination}>
-        <Typography variant="caption">1-6 of 20</Typography>
-        <IconButton>
-          <ChevronLeftIcon />
-        </IconButton>
-        <IconButton>
-          <ChevronRightIcon />
-        </IconButton>
-      </div>
-    </div>
-  );
-};
+const styles = {
+  root: {
+    padding: 13
+  },
+  content: {
+    marginTop: 20
+  },
+  pagination: {
+    marginTop: 13,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'flex-end'
+  }
+}
 
 export default ProductList;

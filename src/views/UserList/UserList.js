@@ -1,31 +1,37 @@
-import React, { useState } from 'react';
-import { makeStyles } from '@material-ui/styles';
-
+import React from 'react';
 import { UsersToolbar, UsersTable } from './components';
-import mockData from './data';
 
-const useStyles = makeStyles(theme => ({
+
+class UserList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      customers: this.props.customers
+    }
+  }
+  componentWillMount(){
+    this.props.showCustomerTask();
+  }
+  render() {
+    return (
+      <div style={styles.root}>
+        <UsersToolbar />
+        <div style={styles.content}>
+          <UsersTable users={this.state.customers} />
+        </div>
+      </div>
+    )
+  }
+}
+
+const styles = {
   root: {
-    padding: theme.spacing(3)
+    paading: 13,
+
   },
   content: {
-    marginTop: theme.spacing(2)
+    marginTop: 20
   }
-}));
-
-const UserList = () => {
-  const classes = useStyles();
-
-  const [users] = useState(mockData);
-
-  return (
-    <div className={classes.root}>
-      <UsersToolbar />
-      <div className={classes.content}>
-        <UsersTable users={users} />
-      </div>
-    </div>
-  );
-};
+}
 
 export default UserList;
