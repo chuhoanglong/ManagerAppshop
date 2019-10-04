@@ -30,27 +30,27 @@ const getDataCustomers = async () => {
 };
 
 // FETCH DATA while user login
-const getUserLogin = async (name,pass) => {
-    // const res = await fetch(URL_USER,
-    //     {
-    //         method: 'POST',
-    //         headers: {
-    //             Accept: "application/json",
-    //             "Content-Type": "application/json"
-    //         },
-    //         body: JSON.stringify({
-    //             name,
-    //             pass,
-    //         }),
-    //     }
-    // );
+// const getUserLogin = async (name,pass) => {
+//     // const res = await fetch(URL_USER,
+//     //     {
+//     //         method: 'POST',
+//     //         headers: {
+//     //             Accept: "application/json",
+//     //             "Content-Type": "application/json"
+//     //         },
+//     //         body: JSON.stringify({
+//     //             name,
+//     //             pass,
+//     //         }),
+//     //     }
+//     // );
 
-    // const response = await res.json();
-    // return response;
-}
+//     // const response = await res.json();
+//     // return response;
+// }
 
 module.exports = {
     getDataProducts,
     getDataCustomers,
-    getUserLogin
+    // getUserLogin
 }
