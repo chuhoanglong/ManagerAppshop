@@ -4,7 +4,7 @@ import * as Types from '../action/actionType';
 
 function* fetDataCustomers(action) {
     try {
-        const customers = yield API.getDataCustomers;
+        const customers = yield API.getDataCustomers();
         console.log('customers',customers);
         
         yield put({ type: Types.FETCH_DATA_CUSTOMERS_SUCCESS, customers });
