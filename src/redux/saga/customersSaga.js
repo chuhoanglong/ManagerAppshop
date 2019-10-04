@@ -1,5 +1,5 @@
 import { takeEvery, put } from 'redux-saga/effects';
-import * as API from './API';
+import  API from './API';
 import * as Types from '../action/actionType';
 
 function* fetDataCustomers(action) {
