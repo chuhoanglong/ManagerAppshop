@@ -1,5 +1,5 @@
 // FETCH DATA To server for product
-const getDataProducts = async () => {
+exports = getDataProducts = async () => {
     const proxyurl = "https://cors-anywhere.herokuapp.com/";
     const url = "https://dmkjo.sse.codesandbox.io/products"; // site that doesn’t send Access-Control-*
     try {
@@ -15,7 +15,7 @@ const getDataProducts = async () => {
 };
 
 // FETCH DATA To server for user.
-const getDataCustomers = async () => {
+exports= getDataCustomers = async () => {
     const proxyurl = "https://cors-anywhere.herokuapp.com/";
     const url = "https://dmkjo.sse.codesandbox.io/customers"; // site that doesn’t send Access-Control-*
     try {
@@ -49,8 +49,8 @@ const getDataCustomers = async () => {
 //     // return response;
 // }
 
-module.exports = {
-    getDataProducts,
-    getDataCustomers,
-    // getUserLogin
-}
+// module.exports = {
+//     getDataProducts,
+//     getDataCustomers,
+//     // getUserLogin
+// }
