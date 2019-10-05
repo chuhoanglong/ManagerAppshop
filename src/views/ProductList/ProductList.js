@@ -51,19 +51,7 @@ class ProductList extends React.Component {
                 md={6}
                 xs={12}
               >
-                <ProductCard product={product}
-                  onClick={() => {
-                    this.setState({ isCheckSelect: !this.state.isCheckSelect, });
-                    if (this.state.isCheckSelect) {
-                      let arrTempPush = [...this.state.selectDelete, this.props.products.id];
-                      this.setState({ selectDelete: [...arrTempPush] });
-                    } else {
-                      let arrTempPop = this.state.selectDelete.filter(id => id != this.state.products.id);
-                      this.setState({ selectDelete: [...arrTempPop] });
-                    }
-                  }}
-                  isCheckSelect = {this.state.isCheckSelect}
-                />
+                <ProductCard product={product}/>
               </Grid>
             ))}
           </Grid>
