@@ -31,7 +31,8 @@ const initState = {
             color: 'Tripple_White'
         },
     ],
-    err: null
+    err: null,
+    response:null,
 };
 
 const productReducer = (state = initState, action) => {
@@ -46,6 +47,18 @@ const productReducer = (state = initState, action) => {
             return {
                 ...state,
                 err: action.error,
+            }
+        }
+        case Types.FETCH_POST_DATA_PRODUCT_SUCCESS: {
+            return {
+                ...state,
+                response: action.response
+            }
+        }
+        case Types.FETCH_POST_DATA_PRODUCT_FAILD: {
+            return {
+                ...state,
+                err: action.error
             }
         }
         default:

@@ -3,5 +3,12 @@ import * as productSaga from './productSaga';
 import * as customersSaga from './customersSaga';
 
 export default function* rootSaga() {
-    yield all([productSaga.productSaga(), customersSaga.customersSaga()]);
+    yield all(
+        [
+            productSaga.productSaga(),
+            productSaga.postProductSaga(),
+            customersSaga.customersSaga(),
+
+        ]
+    );
 }

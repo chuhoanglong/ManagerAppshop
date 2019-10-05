@@ -9,10 +9,54 @@ export const getDataProducts = async () => {
         let responseJson = await response.json();
         return responseJson;
     } catch (error) {
-        console.error('getDataProducts err',error);
+        console.error('getDataProducts err', error);
+        return [];
     }
 
 };
+
+export const postDataProduct = async (product) => {
+    const proxyurl = "https://cors-anywhere.herokuapp.com/";
+    const url = "https://dmkjo.sse.codesandbox.io/products/addProducts"; // site that doesn’t send Access-Control-*
+    const res = await fetch(proxyurl + url,
+        {
+            method: 'POST',
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                name: product.name,
+                price: product.price,
+                color: product.color,
+                category: product.category,
+                url: product.URL,
+                currency: product.currency
+            }),
+        }
+    );
+    const response = await res.json();
+    return response;
+}
+
+export const removeDataProduct = async (product) => {
+    const proxyurl = "https://cors-anywhere.herokuapp.com/";
+    const url = "https://dmkjo.sse.codesandbox.io/products/removeProduct?id="; // site that doesn’t send Access-Control-*
+    const res = await fetch(proxyurl + url + product.id,
+        {
+            method: 'GET',
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                id: product.id,
+            }),
+        }
+    );
+    const response = await res.json();
+    return response;
+}
 
 // FETCH DATA To server for user.
 export const getDataCustomers = async () => {

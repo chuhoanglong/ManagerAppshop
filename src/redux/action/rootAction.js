@@ -22,13 +22,12 @@ export const showCustomerTask = () => {
         type: Types.GET_DATA_CUSTOMERS,
     }
 }
-
-// export const changeSize = (newCarts) => {
-//     return {
-//         type: Types.CHANGE_SIZE,
-//         newCarts
-//     }
-// }
+export const postProductTask = (product) => {
+    return {
+        type: Types.POST_DATA_PRODUCT,
+        product
+    }
+}
 
 // export const deleteProduct = (newCarts) => {
 //     return {
@@ -63,9 +62,21 @@ export const fetchSuccessCustomers = (customers) => {
         customers
     }
 }
-export const fetchFailCustomers= (err) => {
+export const fetchFailCustomers = (err) => {
     return {
         type: Types.FETCH_DATA_CUSTOMERS_FAILD,
         err
+    }
+}
+export const fetchPostSuccessProduct = (response) => {
+    return {
+        type: Types.FETCH_POST_DATA_PRODUCT_SUCCESS,
+        response
+    }
+}
+export const fetchPostFaildProduct = (error) => {
+    return {
+        type: Types.FETCH_POST_DATA_PRODUCT_FAILD,
+        error
     }
 }
