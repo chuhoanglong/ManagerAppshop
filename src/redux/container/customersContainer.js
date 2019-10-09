@@ -4,7 +4,7 @@ import { showCustomerTask } from '../action/rootAction';
 
 const mapStateToProps = (state) => {
     return {
-        customers: state.CustomersReducer
+        customers: state.CustomersReducer.customers
     }
 };
 

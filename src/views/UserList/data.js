@@ -1,19 +1,5 @@
 import uuid from 'uuid/v1';
-const fetchAPI = async () => {
-  const proxyurl = "https://cors-anywhere.herokuapp.com/";
-  const url = "https://dmkjo.sse.codesandbox.io/customers"; // site that doesn’t send Access-Control-*
-  try {
-    let response = await fetch(
-      proxyurl + url,
-    );
-    let responseJson = await response.json();
 
-    return responseJson;
-  } catch (error) {
-    console.error(error);
-  }
-}
-fetchAPI();
 
 export default [
   {

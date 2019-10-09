@@ -9,15 +9,16 @@ class UserList extends React.Component {
       customers: this.props.customers
     }
   }
-  componentWillMount(){
+  componentWillMount() {
     this.props.showCustomerTask();
   }
   render() {
+    const { customers } = this.props.customers;
     return (
       <div style={styles.root}>
         <UsersToolbar />
         <div style={styles.content}>
-          <UsersTable users={this.state.customers} />
+          <UsersTable users={customers || this.state.customers} />
         </div>
       </div>
     )

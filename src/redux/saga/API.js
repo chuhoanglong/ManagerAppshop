@@ -61,10 +61,17 @@ export const removeDataProduct = async (product) => {
 // FETCH DATA To server for user.
 export const getDataCustomers = async () => {
     const proxyurl = "https://cors-anywhere.herokuapp.com/";
-    const url = "https://dmkjo.sse.codesandbox.io/customers"; // site that doesn’t send Access-Control-*
+    const url = "https://dmkjo.sse.codesandbox.io/users/customers"; // site that doesn’t send Access-Control-*
     try {
         let response = await fetch(
             proxyurl + url,
+            {
+                method: 'GET',
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json"
+                }
+            }
         );
         let responseJson = await response.json();
         return responseJson;

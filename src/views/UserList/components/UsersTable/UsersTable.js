@@ -156,7 +156,7 @@ const UsersTable = props => {
                     <TableCell>{user.phone}</TableCell>
                     <TableCell>
                       {moment(user.createdAt).format('DD/MM/YYYY')}
-                    </TableCell>
+                    </TableCell>  
                   </TableRow>
                 ))}
               </TableBody>
